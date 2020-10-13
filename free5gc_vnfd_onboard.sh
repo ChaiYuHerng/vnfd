@@ -1,10 +1,9 @@
 #!/bin/bash
 
-openstack vnf descriptor create --vnfd-file mongo.yaml mongo
-openstack vnf descriptor create --vnfd-file upf.yaml upf
-#openstack vnf descriptor create --vnfd-file upf1.yaml upf1
-#openstack vnf descriptor create --vnfd-file upf2.yaml upf2
-#openstack vnf descriptor create --vnfd-file upf3.yaml upf3
+#openstack vnf descriptor create --vnfd-file mongo.yaml mongo
+openstack vnf descriptor create --vnfd-file upf1.yaml upf1
+openstack vnf descriptor create --vnfd-file upf2.yaml upf2
+openstack vnf descriptor create --vnfd-file upf3.yaml upf3
 
 openstack vnf descriptor create --vnfd-file nrf.yaml nrf
 openstack vnf descriptor create --vnfd-file amf.yaml amf

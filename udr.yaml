@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-udr-VNF
-        image: stage3-cp
+        image: stage3_cp
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
@@ -32,9 +32,9 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd free5gc
+          cd stage3
           echo "configure UDR"
-          cat > /home/ubuntu/free5gc/config/udrcfg.conf <<- EOM
+          cat > /home/ubuntu/stage3/config/udrcfg.conf <<- EOM
           info:
             version: 1.0.0
             description: UDR initial local configuration
@@ -44,6 +44,10 @@ topology_template:
               scheme: http
               ipv4Addr: 192.168.2.104
               port: 29504
+              tls:
+                  log: free5gc/udrsslkey.log
+                  pem: free5gc/support/TLS/udr.pem
+                  key: free5gc/support/TLS/udr.key
             mongodb:
               name: free5gc
               url: mongodb://192.168.2.110:27017

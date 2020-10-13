@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-nssf-VNF
-        image: stage3-cp
+        image: stage3_cp
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
@@ -32,13 +32,13 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd free5gc
+          cd stage3
           echo "configure NSSF"
-          cat > /home/ubuntu/free5gc/config/nssfcfg.conf <<- EOM
+          cat > /home/ubuntu/stage3/config/nssfcfg.conf <<- EOM
           info:
             version: 1.0.0
             description: NSSF initial local configuration
-          
+
           configuration:
             nssfName: NSSF
             sbi:
@@ -71,44 +71,44 @@ topology_template:
               - snssai:
                   sst: 1
                 nsiInformationList:
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 10
               - snssai:
                   sst: 1
                   sd: 1
                 nsiInformationList:
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 11
               - snssai:
                   sst: 1
                   sd: 2
                 nsiInformationList:
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 12
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 12
               - snssai:
                   sst: 1
                   sd: 3
                 nsiInformationList:
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 13
               - snssai:
                   sst: 2
                 nsiInformationList:
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 20
               - snssai:
                   sst: 2
                   sd: 1
                 nsiInformationList:
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 21
               - snssai:
                   sst: 1
                   sd: 010203
                 nsiInformationList:
-                  - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
+                  - nrfId: http://localhost:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 22
             amfSetList:
               - amfSetId: 1
@@ -116,7 +116,7 @@ topology_template:
                   - ffa2e8d7-3275-49c7-8631-6af1df1d9d26
                   - 0e8831c3-6286-4689-ab27-1e2161e15cb1
                   - a1fba9ba-2e39-4e22-9c74-f749da571d0d
-                nrfAmfSet: http://192.168.2.101:8081/nnrf-nfm/v1/nf-instances
+                nrfAmfSet: http://localhost:8081/nnrf-nfm/v1/nf-instances
                 supportedNssaiAvailabilityData:
                   - tai:
                       plmnId:
@@ -142,7 +142,7 @@ topology_template:
                       - sst: 1
                         sd: 2
               - amfSetId: 2
-                nrfAmfSet: http://192.168.2.101:8084/nnrf-nfm/v1/nf-instances
+                nrfAmfSet: http://localhost:8084/nnrf-nfm/v1/nf-instances
                 supportedNssaiAvailabilityData:
                   - tai:
                       plmnId:

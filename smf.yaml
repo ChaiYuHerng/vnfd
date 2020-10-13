@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-smf-VNF
-        image: stage3-cp
+        image: stage3_cp
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
@@ -33,13 +33,13 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd free5gc
+          cd stage3
           echo "configure SMF"
-          cat > /home/ubuntu/free5gc/config/smfcfg.conf <<- EOM
+          cat > /home/ubuntu/stage3/config/smfcfg.conf <<- EOM
           info:
             version: 1.0.0
-            description: AMF initial local configuration
-          
+            description:  initial local configuration
+
           configuration:
             smfName: SMF
             sbi:
@@ -70,7 +70,7 @@ topology_template:
               up_nodes:
                 gNB1:
                   type: AN
-                  an_ip: 192.168.2.35
+                  an_ip: 192.168.2.65
                 UPF:
                   type: UPF
                   node_id:  192.168.2.111
@@ -82,70 +82,6 @@ topology_template:
             ue_subnet: 60.60.0.0/16
             nrfUri: http://192.168.2.101:29510
           EOM
-
-          cat > /home/ubuntu/free5gc/src/smf/smf_context/nf_profile.go << 'EOFF'
-          package smf_context
-          
-          import (
-          	"fmt"
-          	"free5gc/lib/openapi/models"
-          	"time"
-          )
-          
-          var NFServices *[]models.NfService
-          
-          var NfServiceVersion *[]models.NfServiceVersion
-          
-          var SmfInfo *models.SmfInfo
-          
-          func SetupNFProfile() {
-          	//Set time
-          	date := time.Now()
-          	dateFormat, _ := time.Parse(time.RFC3339, date.Format(time.RFC3339))
-          
-          	//set NfServiceVersion
-          	NfServiceVersion = &[]models.NfServiceVersion{
-          		{
-          			ApiVersionInUri: "v1",
-          			ApiFullVersion:  fmt.Sprintf("https://%s:%d/nsmf-pdusession/v1", SMF_Self().HTTPAddress, SMF_Self().HTTPPort),
-          			Expiry:          &dateFormat,
-          		},
-          	}
-          
-          	//set NFServices
-          	NFServices = &[]models.NfService{
-          		{
-          			ServiceInstanceId: SMF_Self().NfInstanceID + "nsmf-pdusession",
-          			ServiceName:       models.ServiceName_NSMF_PDUSESSION,
-          			Versions:          NfServiceVersion,
-          			Scheme:            models.UriScheme_HTTPS,
-          			NfServiceStatus:   models.NfServiceStatus_REGISTERED,
-          			ApiPrefix:         fmt.Sprintf("%s://%s:%d", SMF_Self().URIScheme, SMF_Self().HTTPAddress, SMF_Self().HTTPPort),
-          		},
-          	}
-          
-          	//set smfInfo
-          	SmfInfo = &models.SmfInfo{
-          		SNssaiSmfInfoList: &[]models.SnssaiSmfInfoItem{
-          			{
-          				SNssai: &models.Snssai{},
-          				DnnSmfInfoList: &[]models.DnnSmfInfoItem{
-          					{
-          						Dnn: "internet",
-          					},
-          					{
-          						Dnn: "internet2",
-          					},
-                            {
-          						Dnn: "internet3",
-          					},
-          				},
-          			},
-          		},
-          	}
-          }
-          
-          EOFF
           
           #echo "initialize SMF"
           #go build -o bin/smf -x src/smf/smf.go
