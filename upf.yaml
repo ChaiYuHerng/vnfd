@@ -24,7 +24,7 @@ topology_template:
         user_data_format: RAW
         user_data: |
           #!/bin/sh
-          cd /home/free5gc/src/upf/build 
+          cd /home/ubuntu/free5gc/src/upf/build 
           cat > config/upfcfg.yaml <<- EOM
           info:
             version: 1.0.0

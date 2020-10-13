@@ -33,7 +33,7 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd $GOPATH/src/free5gc
+          cd free5gc
           echo "configure NRF"
           cat > /home/ubuntu/free5gc/config/nrfcfg.conf <<- EOM
           info:

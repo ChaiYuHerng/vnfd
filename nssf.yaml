@@ -32,7 +32,7 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd $GOPATH/src/free5gc
+          cd free5gc
           echo "configure NSSF"
           cat > /home/ubuntu/free5gc/config/nssfcfg.conf <<- EOM
           info:

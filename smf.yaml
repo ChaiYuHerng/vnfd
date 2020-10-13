@@ -33,7 +33,7 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd /home/ubuntu/go/src/free5gc
+          cd free5gc
           echo "configure SMF"
           cat > /home/ubuntu/free5gc/config/smfcfg.conf <<- EOM
           info:

@@ -32,7 +32,7 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd $GOPATH/src/free5gc
+          cd free5gc
           echo "configure AUSF"
           cat > /home/ubuntu/free5gc/config/ausfcfg.conf <<- EOM
           info:
