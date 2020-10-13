@@ -35,10 +35,10 @@ topology_template:
             debugLevel: info
 
             pfcp:
-              - addr: 192.168.2.143
+              - addr: 192.168.2.111
 
             gtpu:
-              - addr: 192.168.2.143
+              - addr: 192.168.2.111
               # [optional] gtpu.name
               # - name: upf.5gc.nctu.me
               # [optional] gtpu.ifname
@@ -56,7 +56,7 @@ topology_template:
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
-        ip_address: 192.168.2.143
+        ip_address: 192.168.2.111
         management: true
       requirements:
       - virtualLink:
@@ -72,7 +72,7 @@ topology_template:
       type: tosca.nodes.network.FloatingIP
       properties:
         floating_network: public
-        floating_ip_address: 172.24.4.79
+        floating_ip_address: 172.24.4.111
       requirements:
       - link:
           node: CP1
