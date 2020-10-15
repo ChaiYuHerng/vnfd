@@ -35,7 +35,7 @@ topology_template:
           
           cd free5gc-stage3
           echo "configure SMF"
-          cat > /home/ubuntu/free5gc-stage3/config/smfcfg2.conf <<- EOM
+          cat > /home/ubuntu/free5gc-stage3/config/smfcfg.conf <<- EOM
           info:
             version: 1.0.0
             description:  initial local configuration
@@ -58,12 +58,12 @@ topology_template:
                   sst: 2
                   sd: 010204
                 dnnSmfInfoList:
-                  - dnn: internet2
+                  - dnn: internet
               - sNssai:
                   sst: 2
                   sd: 112234
                 dnnSmfInfoList:
-                  - dnn: internet2
+                  - dnn: internet
             pfcp:
               addr: 192.168.2.114
             userplane_information:
@@ -84,7 +84,7 @@ topology_template:
           EOM
           
           #echo "initialize SMF"
-          #go build -o bin/smf2 -x src/smf2/smf2.go
+          #go build -o bin/smf -x src/smf/smf.go
           
           #echo "run SMF"
           #sudo ./bin/smf2

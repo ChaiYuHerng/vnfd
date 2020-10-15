@@ -35,7 +35,7 @@ topology_template:
           
           cd free5gc-stage3
           echo "configure SMF"
-          cat > /home/ubuntu/free5gc-stage3/config/smfcfg3.conf <<- EOM
+          cat > /home/ubuntu/free5gc-stage3/config/smfcfg.conf <<- EOM
           info:
             version: 1.0.0
             description:  initial local configuration
@@ -58,12 +58,12 @@ topology_template:
                   sst: 3
                   sd: 010205
                 dnnSmfInfoList:
-                  - dnn: internet3
+                  - dnn: internet
               - sNssai:
                   sst: 3
                   sd: 112235
                 dnnSmfInfoList:
-                  - dnn: internet3
+                  - dnn: internet
             pfcp:
               addr: 192.168.2.115
             userplane_information:
@@ -84,10 +84,10 @@ topology_template:
           EOM
           
           #echo "initialize SMF"
-          #go build -o bin/smf3 -x src/smf3/smf3.go
+          #go build -o bin/smf -x src/smf/smf.go
           
           #echo "run SMF"
-          #sudo ./bin/smf3
+          #sudo ./bin/smf
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
