@@ -58,12 +58,12 @@ topology_template:
                   sst: 2
                   sd: 010204
                 dnnSmfInfoList:
-                  - dnn: internet
+                  - dnn: internet2
               - sNssai:
                   sst: 2
                   sd: 112234
                 dnnSmfInfoList:
-                  - dnn: internet
+                  - dnn: internet2
             pfcp:
               addr: 192.168.2.114
             userplane_information:

@@ -58,12 +58,12 @@ topology_template:
                   sst: 3
                   sd: 010205
                 dnnSmfInfoList:
-                  - dnn: internet
+                  - dnn: internet3
               - sNssai:
                   sst: 3
                   sd: 112235
                 dnnSmfInfoList:
-                  - dnn: internet
+                  - dnn: internet3
             pfcp:
               addr: 192.168.2.115
             userplane_information:
