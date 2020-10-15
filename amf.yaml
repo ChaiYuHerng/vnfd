@@ -72,8 +72,18 @@ topology_template:
                     sd: 010203
                   - sst: 1
                     sd: 112233
+                  - sst: 2
+                    sd: 010204
+                  - sst: 2
+                    sd: 112234
+                  - sst: 3
+                    sd: 010205
+                  - sst: 3
+                    sd: 112235
             supportDnnList:
               - internet
+              - internet2
+              - internet3
             nrfUri: http://192.168.2.101:29510
             security:
               integrityOrder:
