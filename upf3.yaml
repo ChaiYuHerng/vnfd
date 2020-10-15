@@ -25,7 +25,7 @@ topology_template:
         user_data: |
           #!/bin/sh
           cd /home/ubuntu/free5gc/src/upf/build 
-          cat > config/upfcfg.yaml <<- EOM
+          cat > config/upfcfg3.yaml <<- EOM
           info:
             version: 1.0.0
             description: UPF configuration
@@ -45,7 +45,7 @@ topology_template:
               # - ifname: gtpif
 
             apn_list:
-              - apn: internet3
+              - apn: internet
                 cidr: 60.60.0.0/24
                 # [optional] apn_list[*].natifname
                 # natifname: eth0

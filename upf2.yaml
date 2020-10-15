@@ -25,7 +25,7 @@ topology_template:
         user_data: |
           #!/bin/sh
           cd /home/ubuntu/free5gc/src/upf/build 
-          cat > config/upfcfg.yaml <<- EOM
+          cat > config/upfcfg2.yaml <<- EOM
           info:
             version: 1.0.0
             description: UPF configuration
