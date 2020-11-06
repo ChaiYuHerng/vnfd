@@ -38,6 +38,7 @@ def ssh_jump(target_addr,cmds):
             time.sleep(20)
         else:
             time.sleep(3)
+        cmd = cmd + '\n'
         ssh.send(cmd)
         #out=ssh.recv(1024)
         #print out
@@ -55,7 +56,7 @@ if __name__=="__main__":
             IP = '172.24.4.110'
         elif vnf == 'test':
             cmds=['mkdir test','exit\n']
-            IP = '172.24.4.101'
+            IP = '172.24.4.23'
         elif vnf == 'upf1':
             cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf1.yaml src/upf/build/config/upfcfg.yaml','sudo nohup ./bin/free5gc-upfd\n','exit']
             IP = '172.24.4.111'
