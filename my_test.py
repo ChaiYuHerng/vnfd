@@ -39,7 +39,7 @@ def ssh_jump(target_addr,cmds):
     jumpbox.close()
 if __name__=="__main__":
     print('start')
-    cmds = ['sudo mkdir test\n',['cd test\n','sudo mkdir test2\n','exit\n']
+    cmds = ['sudo mkdir test\n','cd test\n','sudo mkdir test2\n','exit\n']
     IP = '172.24.4.85'
     ssh_jump(IP,cmds)
     print('end')
