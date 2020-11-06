@@ -24,6 +24,8 @@ def ssh_jump(target_addr,cmds):
     target.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     target.connect(target_addr, username='ubuntu', pkey=key, sock=jumpbox_channel)
     ssh = target.invoke_shell()
+
+    print("start reading cmds")
     for cmd in cmds:
         print("now cmd is " + cmd)
         if cmd=='sudo nohup ./bin/free5gc-upfd\n':
