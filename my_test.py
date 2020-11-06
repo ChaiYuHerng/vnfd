@@ -25,6 +25,7 @@ def ssh_jump(target_addr,cmds):
     target.connect(target_addr, username='ubuntu', pkey=key, sock=jumpbox_channel)
     ssh = target.invoke_shell()
     for cmd in cmds:
+        print("now cmd is " + cmd)
         if cmd=='sudo nohup ./bin/free5gc-upfd\n':
             time.sleep(20)
         else:
