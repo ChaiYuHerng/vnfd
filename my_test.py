@@ -47,12 +47,15 @@ def ssh_jump(target_addr,cmds):
     jumpbox.close()
 if __name__=="__main__":
     #vnf_list = ['mongodb','upf1','upf2','upf3','nrf','amf','smf1','smf2','smf3','udr','pcf','udm','nssf','ausf']
-    vnf_list = ['upf3']
+    vnf_list = ['test','upf3']
     print("start")
     for vnf in vnf_list:
         if vnf == 'mongodb':
             cmds=['sudo systemctl unmask mongodb','sudo systemctl restart mongod','exit']
             IP = '172.24.4.110'
+        elif vnf == 'test':
+            cmds=['mkdir test','exit\n']
+            IP = '172.24.4.101'
         elif vnf == 'upf1':
             cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf1.yaml src/upf/build/config/upfcfg.yaml','sudo nohup ./bin/free5gc-upfd\n','exit']
             IP = '172.24.4.111'
