@@ -15,10 +15,14 @@ def ssh_jump(target_addr,cmds):
     jumpbox.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     jumpbox.connect('192.168.1.250', username='chris', password='ci9761')
 
+    print("check1")
+
     jumpbox_transport = jumpbox.get_transport()
     src_addr = ('192.168.1.250', 22)
     dest_addr = (target_addr, 22)
     jumpbox_channel = jumpbox_transport.open_channel("direct-tcpip", dest_addr, src_addr)
+
+    print("check2")
 
     target=paramiko.SSHClient()
     target.set_missing_host_key_policy(paramiko.AutoAddPolicy())
