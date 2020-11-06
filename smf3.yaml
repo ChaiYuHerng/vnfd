@@ -60,17 +60,17 @@ topology_template:
                 dnnSmfInfoList:
                   - dnn: internet3
               - sNssai:
-                  sst: 3
-                  sd: 112235
+                  sst: 1
+                  sd: 010203
                 dnnSmfInfoList:
-                  - dnn: internet3
+                  - dnn: internet
             pfcp:
               addr: 192.168.2.115
             userplane_information:
               up_nodes:
                 gNB1:
                   type: AN
-                  an_ip: 192.168.2.35
+                  an_ip: 192.168.2.121
                 UPF:
                   type: UPF
                   node_id:  192.168.2.113
@@ -91,7 +91,7 @@ topology_template:
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
-        ip_address: 192.168.2.114
+        ip_address: 192.168.2.115
         management: true
       requirements:
       - virtualLink:
@@ -107,7 +107,7 @@ topology_template:
       type: tosca.nodes.network.FloatingIP
       properties:
         floating_network: public
-        floating_ip_address: 172.24.4.114
+        floating_ip_address: 172.24.4.115
       requirements:
       - link:
           node: CP1
