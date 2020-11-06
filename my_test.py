@@ -33,9 +33,11 @@ def ssh_jump(target_addr,cmds):
     for cmd in cmds:
         print("now cmd is " + cmd)
         if cmd=='sudo nohup ./bin/free5gc-upfd\n':
+            time.sleep(10)
+        elif cmd == 'make -j`nproc`':
             time.sleep(20)
         else:
-            time.sleep(1)
+            time.sleep(3)
         ssh.send(cmd)
         #out=ssh.recv(1024)
         #print out
@@ -91,4 +93,4 @@ if __name__=="__main__":
             cmds=['cd free5gc-stage3','sudo nohup ./bin/ausf & \n','exit\n']
             IP = '172.24.4.108'
         ssh_jump(IP,cmds)
-    printf("end")
+    print("end")
