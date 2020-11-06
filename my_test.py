@@ -1,9 +1,11 @@
+#! /usr/bin/env python3
 import sys
 import os
 import paramiko
 import time
 #sys.path.append("..")
 def ssh_jump(target_addr,cmds):
+    
     print("now in the ssh_jump")
     key=paramiko.RSAKey.from_private_key_file('cloud.key')
 
