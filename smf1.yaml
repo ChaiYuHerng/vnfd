@@ -70,7 +70,7 @@ topology_template:
               up_nodes:
                 gNB1:
                   type: AN
-                  an_ip: 192.168.2.35
+                  an_ip: 192.168.2.168
                 UPF:
                   type: UPF
                   node_id:  192.168.2.111
