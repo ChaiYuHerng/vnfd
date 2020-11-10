@@ -47,8 +47,8 @@ def ssh_jump(target_addr,cmds):
     target.close()
     jumpbox.close()
 if __name__=="__main__":
-    #vnf_list = ['mongodb','upf1','upf2','upf3','nrf','amf','smf1','smf2','smf3','udr','pcf','udm','nssf','ausf']
-    vnf_list = ['test','upf3']
+    vnf_list = ['mongodb','upf1','upf2','upf3','nrf','amf','smf1','smf2','smf3','udr','pcf','udm','nssf','ausf']
+    #vnf_list = ['test','upf3']
     print("start")
     for vnf in vnf_list:
         if vnf == 'mongodb':
