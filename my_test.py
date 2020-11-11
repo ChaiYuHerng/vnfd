@@ -13,7 +13,7 @@ def ssh_jump(target_addr,cmds):
 
     jumpbox=paramiko.SSHClient()
     jumpbox.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    jumpbox.connect('192.168.1.250', username='chris', password='ci9761')
+    jumpbox.connect('192.168.1.250', username='openstack', password='ci9761')
 
     print("check1")
 
@@ -37,7 +37,7 @@ def ssh_jump(target_addr,cmds):
         elif cmd == 'make -j`nproc`':
             time.sleep(20)
         else:
-            time.sleep(3)
+            time.sleep(2)
         cmd = cmd + '\n'
         ssh.send(cmd)
         #out=ssh.recv(1024)
@@ -58,13 +58,13 @@ if __name__=="__main__":
             cmds=['mkdir test','exit']
             IP = '172.24.4.23'
         elif vnf == 'upf1':
-            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf1.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo nohup ./bin/free5gc-upfd & ','exit']
+            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf1.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo sysctl -w net.ipv4.ip_forward=1','sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE','sudo systemctl stop ufw','sudo nohup ./bin/free5gc-upfd & ','exit']
             IP = '172.24.4.111'
         elif vnf == 'upf2':
-            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf2.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo nohup ./bin/free5gc-upfd & ','exit']
+            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf2.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo sysctl -w net.ipv4.ip_forward=1','sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE','sudo systemctl stop ufw','sudo nohup ./bin/free5gc-upfd & ','exit']
             IP = '172.24.4.112'
         elif vnf == 'upf3':
-            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf3.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo nohup ./bin/free5gc-upfd & ','exit']
+            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf3.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo sysctl -w net.ipv4.ip_forward=1','sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE','sudo systemctl stop ufw','sudo nohup ./bin/free5gc-upfd & ','exit']
             IP = '172.24.4.113'
         elif vnf == 'nrf':
             cmds=['cd free5gc-stage3','sudo nohup ./bin/nrf & ','exit']
