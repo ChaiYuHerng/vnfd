@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-upf3-VNF
-        image: stage3-up-new
+        image: stage3-up
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
