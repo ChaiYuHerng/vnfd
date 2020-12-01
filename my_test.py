@@ -66,6 +66,15 @@ if __name__=="__main__":
         elif vnf == 'upf3':
             cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf3.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo sysctl -w net.ipv4.ip_forward=1','sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE','sudo systemctl stop ufw','sudo nohup ./bin/free5gc-upfd & ','exit']
             IP = '172.24.4.113'
+        elif vnf == 'upf1':
+            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf4.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo sysctl -w net.ipv4.ip_forward=1','sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE','sudo systemctl stop ufw','sudo nohup ./bin/free5gc-upfd & ','exit']
+            IP = '172.24.4.114'
+        elif vnf == 'upf1':
+            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf5.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo sysctl -w net.ipv4.ip_forward=1','sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE','sudo systemctl stop ufw','sudo nohup ./bin/free5gc-upfd & ','exit']
+            IP = '172.24.4.115'
+        elif vnf == 'upf1':
+            cmds=['cd gtp5g','make','sudo make install','cd ../free5gc-stage3/src/upf','mkdir build','cd build','cmake ..','make -j`nproc`','cd config','rm upfcfg.yaml','cd ../../../..','mv upf6.yaml src/upf/build/config/upfcfg.yaml','cd src/upf/build','sudo sysctl -w net.ipv4.ip_forward=1','sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE','sudo systemctl stop ufw','sudo nohup ./bin/free5gc-upfd & ','exit']
+            IP = '172.24.4.116'
         elif vnf == 'nrf':
             cmds=['cd free5gc-stage3','sudo nohup ./bin/nrf & ','exit']
             IP = '172.24.4.101'

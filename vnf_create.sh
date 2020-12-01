@@ -7,6 +7,12 @@ sleep 5
 openstack vnf create --vnfd-name upf2 upf2 --vim-name chris_vim --description "upf2"
 sleep 5
 openstack vnf create --vnfd-name upf3 upf3 --vim-name chris_vim --description "upf3"
+sleep 5
+openstack vnf create --vnfd-name upf4 upf4 --vim-name chris_vim --description "upf4"
+sleep 5
+openstack vnf create --vnfd-name upf5 upf5 --vim-name chris_vim --description "upf5"
+sleep 5
+openstack vnf create --vnfd-name upf6 upf6 --vim-name chris_vim --description "upf6"
 
 sleep 10
 
