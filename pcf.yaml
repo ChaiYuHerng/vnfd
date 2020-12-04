@@ -43,7 +43,8 @@ topology_template:
             pcfName: PCF
             sbi:
               scheme: http
-              ipv4Addr: 192.168.2.105
+              registerIPv4: 192.168.2.105 # IP used to register to NRF
+              bindingIPv4: 192.168.2.105  # IP used to bind the service
               port: 29507
             timeFormat: 2019-01-02 15:04:05
             defaultBdtRefId: BdtPolicyId-

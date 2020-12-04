@@ -45,7 +45,8 @@ topology_template:
               - 192.168.2.102
             sbi:
               scheme: http
-              ipv4Addr: 192.168.2.102
+              registerIPv4: 192.168.2.102 # IP used to register to NRF
+              bindingIPv4: 192.168.2.102  # IP used to bind the service
               port: 29518
             serviceNameList:
               - namf-comm
@@ -74,12 +75,8 @@ topology_template:
                     sd: 112233
                   - sst: 2
                     sd: 010204
-                  - sst: 2
-                    sd: 112234
                   - sst: 3
                     sd: 010205
-                  - sst: 3
-                    sd: 112235
             supportDnnList:
               - internet
               - internet2

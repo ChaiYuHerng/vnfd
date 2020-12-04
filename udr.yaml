@@ -38,20 +38,18 @@ topology_template:
           info:
             version: 1.0.0
             description: UDR initial local configuration
-          
+
           configuration:
             sbi:
               scheme: http
-              ipv4Addr: 192.168.2.104
+              registerIPv4: 192.168.2.104 # IP used to register to NRF
+              bindingIPv4: 192.168.2.104  # IP used to bind the service
               port: 29504
-              tls:
-                  log: free5gc/udrsslkey.log
-                  pem: free5gc/support/TLS/udr.pem
-                  key: free5gc/support/TLS/udr.key
             mongodb:
               name: free5gc
               url: mongodb://192.168.2.110:27017
             nrfUri: http://192.168.2.101:29510
+
           EOM
           
           #echo "initialize UDR"

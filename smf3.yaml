@@ -38,13 +38,14 @@ topology_template:
           cat > /home/ubuntu/new-free5gc/config/smfcfg.conf <<- EOM
           info:
             version: 1.0.0
-            description:  initial local configuration
+            description: SMF initial local configuration
 
           configuration:
             smfName: SMF
             sbi:
               scheme: http
-              ipv4Addr: 192.168.2.115
+              registerIPv4: 192.168.2.115 # IP used to register to NRF
+              bindingIPv4: 192.168.2.115  # IP used to bind the service
               port: 29522
               tls:
                 key: free5gc/support/TLS/smf.key
@@ -73,13 +74,21 @@ topology_template:
                   an_ip: 192.168.2.25
                 UPF:
                   type: UPF
-                  node_id:  192.168.2.113
-                  up_resource_ip: 192.168.2.113
-                
+                  node_id: 192.168.2.113
+
               links:
                 - A: gNB1
                   B: UPF
             ue_subnet: 60.60.0.0/16
+            dnn:
+              internet:
+                dns:
+                  ipv4: 8.8.8.8
+                  ipv6: 2001:4860:4860::8888
+              internet3:
+                dns:
+                  ipv4: 8.8.4.6
+                  ipv6: 2001:4860:4860::8846
             nrfUri: http://192.168.2.101:29510
           EOM
           

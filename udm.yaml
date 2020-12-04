@@ -48,7 +48,8 @@ topology_template:
               - nudm-pp
             sbi:
               scheme: http
-              ipv4Addr: 192.168.2.106
+              registerIPv4: 192.168.2.106 # IP used to register to NRF
+              bindingIPv4: 192.168.2.106  # IP used to bind the service
               port: 29503
               tls:
                 log: free5gc/udmsslkey.log
@@ -57,7 +58,7 @@ topology_template:
             
             udrclient:
               scheme: http
-              ipv4Addr: 192.168.2.238
+              ipv4Addr: 192.168.2.106
               port: 29504
 
             nrfclient:
