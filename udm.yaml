@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-udm-VNF
-        image: stage3-cp
+        image: new-control
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
@@ -32,9 +32,9 @@ topology_template:
           export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
           export GO111MODULE=off
           
-          cd free5gc-stage3
+          cd new-free5gc
           echo "configure UDM"
-          cat > /home/ubuntu/free5gc-stage3/config/udmcfg.conf <<- EOM
+          cat > /home/ubuntu/new-free5gc/config/udmcfg.conf <<- EOM
           info:
             version: 1.0.0
             description: UDM initial local configuration
