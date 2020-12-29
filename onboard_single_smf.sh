@@ -8,7 +8,7 @@ openstack vnf descriptor create --vnfd-file upf3.yaml upf3
 
 openstack vnf descriptor create --vnfd-file nrf.yaml nrf
 openstack vnf descriptor create --vnfd-file amf.yaml amf
-openstack vnf descriptor create --vnfd-file smf1.yaml smf1
+#openstack vnf descriptor create --vnfd-file smf1.yaml smf1
 openstack vnf descriptor create --vnfd-file udr.yaml udr
 openstack vnf descriptor create --vnfd-file pcf.yaml pcf
 openstack vnf descriptor create --vnfd-file udm.yaml udm
