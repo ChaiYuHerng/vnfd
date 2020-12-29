@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-smf1-VNF
-        image: new-control
+        image: new-control2
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
@@ -70,10 +70,10 @@ topology_template:
             userplane_information:
               up_nodes:
                 gNB1:
-                  type: AN
+                  type: AN1
                   an_ip: 192.168.2.157
                 UPF:
-                  type: UPF
+                  type: UPF1
                   node_id: 192.168.2.111
 
               links:

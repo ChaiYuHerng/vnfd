@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-amf-VNF
-        image: new-control
+        image: new-control2
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
@@ -73,6 +73,8 @@ topology_template:
                     sd: 010203
                   - sst: 1
                     sd: 112233
+                  -sst: 1
+                    sd: 212223
                   - sst: 2
                     sd: 010204
                   - sst: 3
