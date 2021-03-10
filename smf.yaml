@@ -16,7 +16,7 @@ topology_template:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
         name: free5gc-smf-VNF
-        image: new-control2
+        image: specialSMF
         flavor: free5gc
         availability_zone: nova
         mgmt_driver: noop
@@ -44,9 +44,9 @@ topology_template:
             smfName: SMF
             sbi:
               scheme: http
-              registerIPv4: 192.168.2.114 # IP used to register to NRF
-              bindingIPv4: 192.168.2.114  # IP used to bind the service
-              port: 29512
+              registerIPv4: 192.168.2.103 # IP used to register to NRF
+              bindingIPv4: 192.168.2.103  # IP used to bind the service
+              port: 29502
               tls:
                 key: free5gc/support/TLS/smf.key
                 pem: free5gc/support/TLS/smf.pem
@@ -56,34 +56,50 @@ topology_template:
               - nsmf-oam
             snssai_info:
               - sNssai:
-                  sst: 2
-                  sd: 010204
-                dnnSmfInfoList:
-                  - dnn: internet2
-              - sNssai:
                   sst: 1
                   sd: 010203
                 dnnSmfInfoList:
-                  - dnn: internet
+                  - dnn: internet1
               - sNssai:
                   sst: 1
                   sd: 112233
                 dnnSmfInfoList:
-                  - dnn: internet
+                  - dnn: internet2
+              - sNssai:
+                  sst: 1
+                  sd: 212233
+                dnnSmfInfoList:
+                  - dnn: internet3
             pfcp:
-              addr: 192.168.2.114
-            userplane_information:
-              up_nodes:
-                gNB1:
-                  type: AN
-                  an_ip: 192.168.2.150
-                UPF:
-                  type: UPF
-                  node_id: 192.168.2.112
+            addr: 192.168.2.103
+          userplane_information:
+            up_nodes:
+              gNB1:
+                type: AN1
+                an_ip: 192.168.2.23
+              gNB2:
+                type: AN2
+                an_ip: 192.168.2.174
+              gNB3:
+                type: AN3
+                an_ip: 192.168.2.171
+              UPF1:
+                type: UPF1
+                node_id: 192.168.2.111
+              UPF2:
+                type: UPF2
+                node_id: 192.168.2.112
+              UPF3:
+                type: UPF3
+                node_id: 192.168.2.113
 
               links:
-                - A: gNB1
-                  B: UPF
+              - A: gNB1
+                B: UPF1
+              - A: gNB2
+                B: UPF2
+              - A: gNB3
+                B: UPF3
             ue_subnet: 60.60.0.0/16
             dnn:
               internet:
