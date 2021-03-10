@@ -63,7 +63,7 @@ topology_template:
                   - sst: 1
                     sd: 112233
                   - sst: 1
-                    sd: 3
+                    sd: 212223
                   - sst: 2
                     sd: 010204
                   - sst: 3
@@ -82,7 +82,7 @@ topology_template:
                     nsiId: 11
               - snssai:
                   sst: 1
-                  sd: 2
+                  sd: 212223
                 nsiInformationList:
                   - nrfId: http://192.168.2.101:29510/nnrf-nfm/v1/nf-instances
                     nsiId: 12
